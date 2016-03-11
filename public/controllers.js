@@ -3,11 +3,9 @@
 var app = angular.module('myApp');
 
 app.controller('mainCtrl', function($scope, UploadService) {
-  console.log('inside controller.js');
 
   UploadService.fetch()
   .then(function(res) {
-    console.log('res:', res);
     var uploads = res.data;
     $scope.uploads = uploads;
   }, function(err) {
@@ -15,10 +13,8 @@ app.controller('mainCtrl', function($scope, UploadService) {
   })
 
   $scope.addUpload = function() {
-    console.log($scope.newUpload);
     UploadService.create($scope.newUpload)
     .then(function(res) {
-      console.log('res:', res.data);
       $scope.uploads.push(res.data);
     }, function(err) {
       console.error('err:', err);
@@ -26,7 +22,6 @@ app.controller('mainCtrl', function($scope, UploadService) {
     };
 
   $scope.removeUpload = function(upload) {
-    console.log('upload:', upload);
     UploadService.remove(upload)
     .then(function(res) {
       var index = $scope.uploads.indexOf(upload);
@@ -37,8 +32,6 @@ app.controller('mainCtrl', function($scope, UploadService) {
   }
 
   $scope.editUpload = function(upload) {
-    console.log('click');
-    // $scope.uploadToEdit = angular.copy(upload);
     UploadService.edit(upload)
     .then(function(res) {
       var index = $scope.uploads.indexOf(upload);
