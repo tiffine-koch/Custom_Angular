@@ -2,20 +2,6 @@
 
 var app = angular.module('myApp', []);
 
-$(document).ready(init);
-
-function init() {
-  $('#modalButton').on('click', doIt);
-  $('#closeIt').on('click', closeIt);
-}
-
-function doIt() {
-  $('#demoModal').openModal();
-}
-function closeIt() {
-  $('#demoModal').closeModal();
-}
-
 app.controller("mainCtrl", function($scope, $http) {
   $scope.uploads = [];
 
