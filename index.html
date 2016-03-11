@@ -10,32 +10,32 @@
 <body ng-app='MyApp'>
 
   <h1>About Last Nite</h1>
-  <p>Send your favorite pics from last night's event. Vote. Share</p>
+  <p id="small">Send your favorite pics from last night's event. Share. Vote. Win.</p>
   <div ng-controller='mainCtrl' class="container">
     <div class="row">
        <form class="col s12">
          <div class="row">
            <div class="input-field col s6">
-             <input placeholder="Enter url" id="first_name" type="text" class="validate">
-             <label for="first_name">Image URL</label>
+             <input placeholder="Enter url" id="first_name" type="text" class="validate" ng-model="upload.image">
+             <label for="">Image URL</label>
            </div>
            <div class="input-field col s6">
-             <input id="last_name" type="text" class="validate">
-             <label for="last_name">Description</label>
+             <input id="last_name" type="text" class="validate" ng-model="upload.desc">
+             <label for="">Description</label>
            </div>
          </div>
          <div class="row">
            <div class="input-field col s6">
-             <!-- <input type="date" class="datepicker"> -->
-             <input type="text" class="validate">
-             <label for="">Time</label>
+             <input type="date" class="datepicker" ng-model="upload.time">
+             <!-- <input type="text" class="validate"> -->
+             <label for=""></label>
            </div>
            <div class="input-field col s6">
-             <input id="rating" type="number" class="validate">
+             <input id="rating" type="number" class="validate" ng-model="upload.edit">
              <label for="rating">Rating</label>
            </div>
          </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <button id="submit" class="btn waves-effect waves-light" type="submit" name="action" ng-click="addUpload()">Submit
           <i class="material-icons right"></i>
         </button>
        </form>
@@ -150,25 +150,10 @@
          </div>
        </div>
      </div>
-
-     <!-- <div class="card small">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="rager-4.jpg">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-        <p><a href="#">This is a link</a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-      </div>
-    </div> -->
-
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
 </body>
