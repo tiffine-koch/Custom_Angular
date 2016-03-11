@@ -3,3 +3,50 @@
 //declaring a NEW module
 //array as the 2nd argument as a new module
 var app = angular.module('myApp', []);
+
+app.controller("mainCtrl", function($scope, $http) {
+  $scope.uploads = [];
+
+  $http({
+    method: "GET",
+    url: "/uploads"
+  }).then(function(response){
+    console.log(response.data)
+    $scope.uploads = response.data;
+  }, function(error){
+    console.log(error);
+  });
+
+  $scope.addUpload = function() {
+    var upload = angular.copy($scope.upload);
+    console.log(upload);
+    $scope.uploads.push(upload);
+    console.log($scope.uploads)
+    $http({
+      method: 'POST',
+      url: '/uploads',
+      data: upload
+    }).then(function(response){
+      swal("Your image has been uploaded!");
+      console.log(response)
+    }, function(error){
+      console.log(error)
+    })
+  }
+
+  $scope.deleteUpload = function(upload){
+    var id = upload.id;
+    var index = $scope.uploads.indexOf(upload);
+    $scope.uploads.splice(index, 1)
+
+    console.log(upload)
+    $http({
+      method: 'DELETE',
+      url: "/uploads/" + id
+    })
+    .then(function(data) {
+      swal('Your upload has been deleted')
+      console.log(data)
+    })
+  }
+})

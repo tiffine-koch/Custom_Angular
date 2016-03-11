@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body ng-app='MyApp'>
+<body ng-app='myApp'>
 
   <h1>About Last Nite</h1>
   <p id="small">Send your favorite pics from last night's event. Share. Vote. Win.</p>
@@ -31,7 +32,7 @@
              <label for=""></label>
            </div>
            <div class="input-field col s6">
-             <input id="rating" type="number" class="validate" ng-model="upload.edit">
+             <input id="rating" type="number" class="validate" ng-model="upload.rating">
              <label for="rating">Rating</label>
            </div>
          </div>
@@ -40,6 +41,47 @@
         </button>
        </form>
      </div>
+
+     <div class="table-reponsive">
+       <table class='table' ng-show='uploads.length'>
+       <thead>
+           <tr>
+           <th>#</th>
+           <th>image</th>
+           <th>Description</th>
+           <th>Time</th>
+           <th>Rating</th>
+           <th>Edit</th>
+           <th>Delete</th>
+         </tr>
+       </thead>
+        <tbody>
+          <tr ng-repeat='upload in uploads | filter: filterText track by $index'  ng-class='{lightsteelblue: even}'>
+            <td>{{$index + 1}}</td>
+           <!-- <td>{{upload.image}}</td> -->
+           <td>
+             <img id="pics" ng-src="{{upload.image}}" />
+           </td>
+           <td>{{upload.desc}}</td>
+           <td>{{upload.time | date}}</td>
+           <td>{{upload.rating}}</td>
+            <td>
+              <button type="button" ng-click="editUpload(upload)" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </button>
+            </td>
+            <td>
+              <button ng-click="deleteUpload(upload)" type="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-trash"></span>
+              </button>
+            </td>
+            </tr>
+         </tbody>
+       </table>
+     </div>
+
+
+
 
      <div class="row">
        <form class="col s12">
@@ -150,11 +192,12 @@
          </div>
        </div>
      </div>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="main.js"></script>
+  <script src="module.js"></script>
 </body>
 </html>

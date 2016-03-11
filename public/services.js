@@ -12,6 +12,10 @@ app.service('UploadService', function($http) {
     return $http.post('/uploads', newUpload);
   }
 
+  this.edit = function(upload) {
+    return $http.put(`/uploads/${upload.id}`);
+  }
+
   this.remove = function(upload) {
     return $http.delete(`/uploads/${upload.id}`);
   }

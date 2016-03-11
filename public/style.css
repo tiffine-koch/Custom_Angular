@@ -11,3 +11,7 @@ h1 {
 #submit {
   background-color: #aa00ff;
 }
+
+#pics {
+  max-width: 150px;
+}

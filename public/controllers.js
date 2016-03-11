@@ -1,16 +1,12 @@
 'use strict';
 
-//no array, referencing a pre-existing module
 var app = angular.module('myApp');
 
 app.controller('mainCtrl', function($scope, UploadService) {
   console.log('inside controller.js');
 
-  UploadService.sayHi();
-  console.log(UploadService.numbers);
-
-  UploadService.fetch() //this returns the promise
-  .then(function(res) { //we do this in the controller, bc the controller has our scope
+  UploadService.fetch()
+  .then(function(res) {
     console.log('res:', res);
     var uploads = res.data;
     $scope.uploads = uploads;
@@ -20,10 +16,10 @@ app.controller('mainCtrl', function($scope, UploadService) {
 
   $scope.addUpload = function() {
     console.log($scope.newUpload);
-    UploadService.create($scope.newUpload) //this returns the promise
-    .then(function(res) { //we do this in the controller, bc the controller has our scope
+    UploadService.create($scope.newUpload)
+    .then(function(res) {
       console.log('res:', res.data);
-      $scope.uploads.push(res.data); //update array with new upload
+      $scope.uploads.push(res.data);
     }, function(err) {
       console.error('err:', err);
       })

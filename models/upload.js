@@ -15,12 +15,12 @@ exports.get = function(cb) {
 };
 
 exports.create = function(newUpload, cb) {
-  this.get((err, uploads) => {  // read and parse
+  this.get((err, uploads) => {
     if(err) return cb(err);
     newUpload.id = uuid();
     console.log(newUpload.id);
-    uploads.push(newUpload);   // modify
-    this.write(uploads, function(err) { // stringify and write
+    uploads.push(newUpload);
+    this.write(uploads, function(err) {
       cb(err, newUpload);
     });
   });
@@ -29,9 +29,6 @@ exports.create = function(newUpload, cb) {
 exports.write = function(uploads, cb) {
   fs.writeFile(uploadsFilePath, JSON.stringify(uploads), cb);
 };
-
-exports.getById = function() {
-}
 
 exports.delete = function(id, cb) {
   this.get((err, uploads) => {
@@ -46,11 +43,9 @@ exports.delete = function(id, cb) {
       cb( {err: "Your upload not found."} );
       return;
     }
-
     this.write(uploads, cb);
   });
 };
-
 
 exports.update = function(id, updatesObj, cb) {
   this.get((err, uploads) => {
@@ -58,7 +53,6 @@ exports.update = function(id, updatesObj, cb) {
 
     uploads = uploads.map(function(upload) {
       if(upload.id === id) {
-        // do the update
         for(var key in updatesObj) {
           upload[key] = updatesObj[key];
         }
