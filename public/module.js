@@ -50,6 +50,8 @@ app.controller("mainCtrl", function($scope, $http) {
   }
 
   $scope.editUpload = function(upload) {
+    $('#demoModal').openModal();
+    $('#modalButton').openModal();
     console.log('click me!');
     var id = upload.id;
     var index = $scope.uploads.indexOf(upload);
