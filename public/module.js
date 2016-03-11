@@ -1,7 +1,5 @@
 'use strict';
 
-//declaring a NEW module
-//array as the 2nd argument as a new module
 var app = angular.module('myApp', []);
 
 app.controller("mainCtrl", function($scope, $http) {
@@ -61,7 +59,7 @@ app.controller("mainCtrl", function($scope, $http) {
       url: "/uploads/" + id,
     })
     .then(function(data){
-      addUpload();
+      // addUpload();
       console.log('data', data);
     }, function(err){
       console.error(err);

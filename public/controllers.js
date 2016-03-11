@@ -38,7 +38,14 @@ app.controller('mainCtrl', function($scope, UploadService) {
 
   $scope.editUpload = function(upload) {
     console.log('click');
-    $scope.uploadToEdit = angular.copy(upload);
+    // $scope.uploadToEdit = angular.copy(upload);
+    UploadService.edit(upload)
+    .then(function(res) {
+      var index = $scope.uploads.indexOf(upload);
+      $scope.uploads.splice(index, 1);
+    }, function(err) {
+      console.error('err:', err);
+    });
   }
 
   $scope.cancelEdit = function() {

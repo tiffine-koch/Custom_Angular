@@ -55,7 +55,6 @@
            <div class="card-image">
              <img id="pics" ng-src="{{upload.image}}" />
              <span class="card-title">{{upload.time | date: 'h:mma'}}</span>
-             <!-- <span class="card-title">{{upload.time | date}}</span> -->
            </div>
            <div class="card-content">
               {{upload.desc}}
@@ -70,6 +69,48 @@
          </div>
        </div>
      </div>
+
+     <div class="col">
+       <!-- $('#demoModal').openModal() -->
+      <button>
+        <a class='btn modal-trigger' href='#demoModal' enable-tabs="true" modal>Edit</a>
+      </button>
+     </div>
+     <div id="demoModal" class="modal">
+         <div class="modal-content">
+        <h4>I was drunk! I need to edit!</h4>
+         <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="Enter url" id="first_name" type="text" class="validate" ng-model="upload.image">
+                  <label for="">Image URL</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="last_name" type="text" class="validate" ng-model="upload.desc" placeholder="...and then this happened...">
+                  <label for="">Description</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="time" class="" ng-model="upload.time">
+                  <label for=""></label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="rating" type="number" class="validate" ng-model="upload.rating" placeholder="Enter a rating between 1 - 5" min="1" max="5">
+                  <label for="rating">Rating</label>
+                </div>
+              </div>
+              <button id="submit" class="btn waves-effect waves-light" type="submit" name="action" ng-click="addUpload()">Submit
+                <i class="material-icons right"></i>
+              </button>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action" ng-click="editUpload(upload)">Submit</a>
+         </div>
+       </div>
+     </div>
+
 
      <div class="row">
        <form class="col s12">
