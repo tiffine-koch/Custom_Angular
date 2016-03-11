@@ -7,104 +7,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body ng-app='myApp'>
-
-  <h1>About Last Nite</h1>
-  <p id="small">Send your favorite pics from last night's event. Share. Vote. Win.</p>
-  <div ng-controller='mainCtrl' class="container">
-    <div class="row">
-       <form class="col s12">
-         <div class="row">
-           <div class="input-field col s6">
-             <input placeholder="Enter url" id="first_name" type="text" class="validate" ng-model="upload.image">
-             <label for="">Image URL</label>
-           </div>
-           <div class="input-field col s6">
-             <input id="last_name" type="text" class="validate" ng-model="upload.desc" placeholder="...and then this happened...">
-             <label for="">Description</label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s6">
-             <input type="time" class="" ng-model="upload.time">
-             <!-- <input type="date" class="datepicker" ng-model="upload.time"> -->
-             <label for=""></label>
-           </div>
-           <div class="input-field col s6">
-             <input id="rating" type="number" class="validate" ng-model="upload.rating" placeholder="Enter a rating between 1 - 5" min="1" max="5">
-             <label for="rating">Rating</label>
-           </div>
-         </div>
-        <button id="submit" class="btn waves-effect waves-light" type="submit" name="action" ng-click="addUpload()">Submit
-          <i class="material-icons right"></i>
-        </button>
-
-        <div class="row">
-          <div class="input-field col s12 m8">
-            <input type="text" class="filterLine" ng-model="filterText">
-            <label for="">Search</label>
-          </div>
-       </form>
-     </div>
-
-     <div class="row">
-       <div class="col s12 m4" ng-repeat='upload in uploads | filter: filterText track by $index'>
-         <div class="card">
-           <div class="card-image">
-             <img id="pics" ng-src="{{upload.image}}" />
-             <span class="card-title">{{upload.time | date: 'h:mma'}}</span>
-             <!-- <span class="card-title">{{upload.time | date}}</span> -->
-           </div>
-           <div class="card-content">
-              {{upload.desc}}
-           </div>
-
-           <div class="card-action">
-             <p class="rating">Rating: {{upload.rating}}
-               <button type="button" ng-click="editUpload(upload)" class="btn-floating yellow darken-1" data-toggle="modal" data-target="#myModal"data-toggle="modal" data-target="#myModal"><i class="tiny material-icons">mode_edit</i></button>
-               <button ng-click="deleteUpload(upload)" type="button" class="btn-floating red"><i class="small material-icons left">not_interested</i></button>
-             </p>
-           </div>
-         </div>
-       </div>
-     </div>
-
-     <div class="row">
-       <form class="col s12">
-         <div class="row">
-           <div class="input-field col s8">
-             <i class="material-icons prefix"></i>
-             <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-             <label for="icon_prefix2">Add a comment</label>
-           </div>
-          <div class="col s2">
-            <a class="btn-floating yellow darken-1"><i class="material-icons">"</i></a>
-          </div>
-         </div>
-       </form>
-     </div>
-     </div>
-  <script src="http://momentjs.com/downloads/moment.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="module.js"></script>
-</body>
-</html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  <link rel="stylesheet" href="style.css">
 </head>
 <body ng-app='myApp'>
 
@@ -126,6 +28,7 @@
          <div class="row">
            <div class="input-field col s6">
              <input type="date" class="datepicker" ng-model="upload.time">
+             <!-- <input type="text" class="validate"> -->
              <label for=""></label>
            </div>
            <div class="input-field col s6">
@@ -161,6 +64,7 @@
         <tbody>
           <tr ng-repeat='upload in uploads | filter: filterText track by $index'  ng-class='{lightsteelblue: even}'>
             <td>{{$index + 1}}</td>
+           <!-- <td>{{upload.image}}</td> -->
            <td>
              <img id="pics" ng-src="{{upload.image}}" />
            </td>
@@ -302,4 +206,4 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="module.js"></script>
 </body>
-</html> -->
+</html>

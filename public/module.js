@@ -32,6 +32,7 @@ app.controller("mainCtrl", function($scope, $http) {
     }, function(error){
       console.log(error)
     })
+    $scope.upload = {};
   }
 
   $scope.deleteUpload = function(upload){
@@ -49,4 +50,22 @@ app.controller("mainCtrl", function($scope, $http) {
       console.log(data)
     })
   }
+
+  $scope.editUpload = function(upload) {
+    console.log('click me!');
+    var id = upload.id;
+    var index = $scope.uploads.indexOf(upload);
+    $scope.uploads.splice(index, 1)
+    $http({
+      method: 'PUT',
+      url: "/uploads/" + id,
+    })
+    .then(function(data){
+      addUpload();
+      console.log('data', data);
+    }, function(err){
+      console.error(err);
+    })
+    $scope.upload = {};
+  };
 })

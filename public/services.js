@@ -1,9 +1,7 @@
 'use strict';
 
-//no array, referencing a pre-existing module
 var app = angular.module('myApp');
 
-//service use this
 app.service('UploadService', function($http) {
   this.fetch = function() {
     return $http.get('/uploads');
