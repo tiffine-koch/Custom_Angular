@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app='MyApp'>
+
+  <h1>About Last Nite</h1>
+  <p>Send your favorite pics from last night's event. Vote. Share</p>
+  <div ng-controller='mainCtrl' class="container">
+    <div class="row">
+       <form class="col s12">
+         <div class="row">
+           <div class="input-field col s6">
+             <input placeholder="Enter url" id="first_name" type="text" class="validate">
+             <label for="first_name">Image URL</label>
+           </div>
+           <div class="input-field col s6">
+             <input id="last_name" type="text" class="validate">
+             <label for="last_name">Description</label>
+           </div>
+         </div>
+         <div class="row">
+           <div class="input-field col s6">
+             <!-- <input type="date" class="datepicker"> -->
+             <input type="text" class="validate">
+             <label for="">Time</label>
+           </div>
+           <div class="input-field col s6">
+             <input id="rating" type="number" class="validate">
+             <label for="rating">Rating</label>
+           </div>
+         </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right"></i>
+        </button>
+       </form>
+     </div>
+
+     <div class="row">
+       <form class="col s12">
+         <div class="row">
+           <div class="input-field col s8">
+             <i class="material-icons prefix"></i>
+             <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+             <label for="icon_prefix2">Add a comment</label>
+           </div>
+          <div class="col s2">
+            <a class="btn-floating yellow darken-1"><i class="material-icons">"</i></a>
+          </div>
+         </div>
+       </form>
+     </div>
+
+     <div class="row">
+       <div class="col s12 m4">
+         <div class="card">
+           <div class="card-image">
+             <img src="rager-4.jpg">
+             <span class="card-title">Card Title</span>
+           </div>
+           <div class="card-content">
+             <p>I am a very simple card. I am good at containing small bits of information.
+             I am convenient because I require little markup to use effectively.</p>
+           </div>
+           <div class="card-action">
+             <a href="#">This is a link</a>
+           </div>
+         </div>
+       </div>
+       <div class="col s12 m4">
+         <div class="card">
+           <div class="card-image">
+             <img src="ladies.jpg">
+             <span class="card-title">Card Title</span>
+           </div>
+           <div class="card-content">
+             <p>I am a very simple card. I am good at containing small bits of information.
+             I am convenient because I require little markup to use effectively.</p>
+           </div>
+           <div class="card-action">
+             <a href="#">This is a link</a>
+           </div>
+         </div>
+       </div>
+       <div class="col s12 m4">
+         <div class="card">
+           <div class="card-image">
+             <img src="ladies.jpg">
+             <span class="card-title">Card Title</span>
+           </div>
+           <div class="card-content">
+             <p>I am a very simple card. I am good at containing small bits of information.
+             I am convenient because I require little markup to use effectively.</p>
+           </div>
+           <div class="card-action">
+             <a href="#">This is a link</a>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col s12 m4">
+         <div class="card">
+           <div class="card-image">
+             <img src="rager-4.jpg">
+             <span class="card-title">Card Title</span>
+           </div>
+           <div class="card-content">
+             <p>I am a very simple card. I am good at containing small bits of information.
+             I am convenient because I require little markup to use effectively.</p>
+           </div>
+           <div class="card-action">
+             <a href="#">This is a link</a>
+           </div>
+         </div>
+       </div>
+       <div class="col s12 m4">
+         <div class="card">
+           <div class="card-image">
+             <img src="ladies.jpg">
+             <span class="card-title">Card Title</span>
+           </div>
+           <div class="card-content">
+             <p>I am a very simple card. I am good at containing small bits of information.
+             I am convenient because I require little markup to use effectively.</p>
+           </div>
+           <div class="card-action">
+             <a href="#">This is a link</a>
+           </div>
+         </div>
+       </div>
+       <div class="col s12 m4">
+         <div class="card">
+           <div class="card-image">
+             <img src="ladies.jpg">
+             <span class="card-title">Card Title</span>
+           </div>
+           <div class="card-content">
+             <p>I am a very simple card. I am good at containing small bits of information.
+             I am convenient because I require little markup to use effectively.</p>
+           </div>
+           <div class="card-action">
+             <a href="#">This is a link</a>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- <div class="card small">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="rager-4.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+        <p><a href="#">This is a link</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+    </div> -->
+
+  <script src="http://momentjs.com/downloads/moment.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
