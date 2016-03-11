@@ -2,6 +2,20 @@
 
 var app = angular.module('myApp', []);
 
+$(document).ready(init);
+
+function init() {
+  $('#modalButton').on('click', doIt);
+  $('#closeIt').on('click', closeIt);
+}
+
+function doIt() {
+  $('#demoModal').openModal();
+}
+function closeIt() {
+  $('#demoModal').closeModal();
+}
+
 app.controller("mainCtrl", function($scope, $http) {
   $scope.uploads = [];
 
@@ -53,7 +67,7 @@ app.controller("mainCtrl", function($scope, $http) {
     console.log('click me!');
     var id = upload.id;
     var index = $scope.uploads.indexOf(upload);
-    $scope.uploads.splice(index, 1)
+    $scope.uploads.splice(index, 1);
     $http({
       method: 'PUT',
       url: "/uploads/" + id,
